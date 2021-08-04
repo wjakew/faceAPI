@@ -1,7 +1,10 @@
+# Jakub Wawak
+# all rights reserved 2021
+# kubawawak@gmail.com
+
 import os
 import socket
 import tqdm
-
 
 #object for loading data from client
 class Server:
