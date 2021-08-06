@@ -5,8 +5,11 @@
 import os
 import socket
 import tqdm
+<<<<<<< HEAD
 from concurrent.futures import ThreadPoolExecutor
 from time import perf_counter
+=======
+>>>>>>> b89e7e2f58f16e75902bdd7960917d544e7374d0
 
 #object for loading data from client
 class Server:
@@ -51,6 +54,7 @@ class Server:
                 filename = os.path.basename(filename)
                 filesize = int(filesize)
 
+<<<<<<< HEAD
                 progress = tqdm.tqdm(range(filesize), f"Receiving {filename}", unit="B", unit_scale=True, unit_divisor=1024)
                 with open(filename, "wb") as f:
                     while True:
@@ -66,3 +70,19 @@ class Server:
                 # close the server socket
                 self.server_socket.close()
                 print(f"Time took: {perf_counter() - t:.2f}s")
+=======
+            progress = tqdm.tqdm(range(filesize), f"Receiving {filename}", unit="B", unit_scale=True, unit_divisor=1024)
+            with open(filename, "wb") as f:
+                while True:
+                    bytes_read = client_socket.recv(self.BUFFER_SIZE)
+                    if not bytes_read:
+                        break
+                    f.write(bytes_read)
+                    progress.update(len(bytes_read))
+            f.close()
+            print("File saved - ready for another connection")
+            # close the client socket
+            client_socket.close()
+            # close the server socket
+            self.server_socket.close()
+>>>>>>> b89e7e2f58f16e75902bdd7960917d544e7374d0
