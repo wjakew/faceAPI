@@ -1,4 +1,6 @@
-import os
+# Jakub Wawak
+# all rights reserved 2021
+# kubawawak@gmail.com
 import socket
 import os
 import tqdm
