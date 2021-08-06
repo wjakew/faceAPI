@@ -20,10 +20,8 @@ class Menu:
         for word in words:
             # exit option
             if ( word == "exit"):
-<<<<<<< HEAD
+
                 print("Exiting server...")
-=======
->>>>>>> b89e7e2f58f16e75902bdd7960917d544e7374d0
                 self.flag = True
                 break
             if ( word == "auth"):
