@@ -6,10 +6,11 @@ debug = 1
 class Menu:
 
     # constructor
-    def __init__(self,user_input):
+    def __init__(self,user_input,database):
         self.user_input = user_input
         self.auth = False
-        self.flag = False
+        self.flag = True
+        self.database = database
 
     # function for running the server
     def run(self):
@@ -22,7 +23,7 @@ class Menu:
             if ( word == "exit"):
 
                 print("Exiting server...")
-                self.flag = True
+                self.flag = False
                 break
             if ( word == "auth"):
                 if ( len(words) == 2 ):

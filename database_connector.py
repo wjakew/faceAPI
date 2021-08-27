@@ -42,6 +42,25 @@ class Database_Connector:
             print("Error connecting to the database: ",e)
             self.connected = False
 
-database = Database_Connector()
-database.connect("localhost","entrc_database","root","password")
-print(database.connected)
+    # function for dissconecting
+    def dissconnect(self):
+        self.connector.close()
+
+    # function for showing state
+    def show_state(self):
+        print("database status: "+self.connected)
+        print("database ip: "+self.database_ip)
+        print("database name: "+self.database_name)
+        print("database user: "+self.database_user)
+
+    # function for checking if api state is on to operate
+    def check_api_state(self):
+        query = ("SELECT programcodes_value FROM PROGRAMCODES where programcodes_key = 'FACEAPI';")
+
+        self.cursor.execute(query)
+
+        for (program_value) in self.cursor:
+            if program_value != "NO":
+                return program_value
+            return None
+
