@@ -7,7 +7,8 @@ from database_connector import Database_Connector
 from menu import Menu
 from Tester import Tester
 from server import Server
-version = "v.1.0.0B3"
+version = "v.1.0.0B4"
+build = "24092021REV01"
 auth = False   # function for setting the auth
 log = []       # function for logging data
 flag = True
@@ -22,7 +23,8 @@ configuration = Configuration()
 # function for showing header
 def show_header():
     header = "faceAPI "+version +"\n"
-    header = header +"by Jakub Wawak 2021"
+    header = header +"by Jakub Wawak 2021\n"
+    header = version +"/"+build
     print(header)
 
 # function for understanding user input

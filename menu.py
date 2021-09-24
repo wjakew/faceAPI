@@ -1,6 +1,7 @@
 # Jakub Wawak
 # all rights reserved 2021
 # kubawawak@gmail.com
+from server import Server
 debug = 1
 # object for maintaing server functions
 class Menu:
@@ -21,15 +22,15 @@ class Menu:
         for word in words:
             # exit option
             if ( word == "exit"):
-
                 print("Exiting server...")
                 self.flag = False
                 break
-            if ( word == "auth"):
-                if ( len(words) == 2 ):
-                    password = input("password for "+words[1]+": ")
-                else:
-                    print("no authorization for '' user")
-
+            elif (word == "run"):
+                print("Preparing to run server...")
+                server = Server()
+                server.run()
+                break;
+            else:
+                print("No keyword found")
             
 
